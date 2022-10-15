@@ -8,36 +8,32 @@ const onChange = action('change');
 export default {
   title: 'forms/Checkbox',
   component: Checkbox,
+  argTypes: {
+    appearance: { control: { type: 'select' }, options: ['primary', 'secondary', 'tertiary'] },
+    label: { control: { type: 'text' } },
+  },
 };
 
 export const Template = (args) => <Checkbox {...args} />;
-Template.args = { label: 'Basic', hideLabel: false };
-Template.storyName = 'Playground';
+Template.args = {
+  label: 'Agree',
+  hideLabel: false,
+};
+Template.storyName = 'Default';
 
-export const All = () => (
-  <form>
-    <Checkbox id="Unchecked" label="Cats" hideLabel onChange={onChange} />
-    <Checkbox id="Checked" label="Cats" hideLabel checked onChange={onChange} />
-    <Checkbox
-      id="With-label-and-error"
-      label="Cats"
-      onChange={onChange}
-      error="There's a snake in my boots"
-    />
-    <Checkbox id="With-label" label="Cats" onChange={onChange} />
-    <Checkbox
-      appearance="secondary"
-      id="With-label"
-      label="Secondary"
-      checked
-      onChange={onChange}
-    />
-    <Checkbox appearance="secondary" id="With-label" label="Secondary" onChange={onChange} />
-  </form>
-);
+export const WithoutLabel = Template.bind({});
+WithoutLabel.args = {
+  hideLabel: true,
+};
 
-export const Unchecked = Template.bind();
-Unchecked.args = { id: 'Unchecked', label: 'Cats', hideLabel: true };
+export const Checked = Template.bind({});
+Checked.args = {
+  hideLabel: true,
+  checked: true,
+};
 
-export const Checked = Template.bind();
-Checked.args = { id: 'Checked', label: 'Cats', hideLabel: true, checked: true };
+export const CheckedLabel = Template.bind({});
+CheckedLabel.args = {
+  hideLabel: false,
+  checked: true,
+};
