@@ -18,7 +18,7 @@ export default {
   },
 };
 
-export const Template = (args) => <Input onChange={onChange} {...args} />;
+export const Template = (args) => <Input {...args} onChange={onChange} />;
 Template.args = {
   id: 'Basic',
   label: 'Email',
@@ -51,4 +51,5 @@ Pill.args = {
 
 const Input = styled(UnstyledInput)`
   padding-top: 1em;
+  min-width: 557px;
 `;

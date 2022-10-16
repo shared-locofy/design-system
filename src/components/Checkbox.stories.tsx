@@ -14,7 +14,7 @@ export default {
   },
 };
 
-export const Template = (args) => <Checkbox {...args} />;
+export const Template = (args) => <Checkbox {...args} onChange={onChange} />;
 Template.args = {
   label: 'Agree',
   hideLabel: false,
